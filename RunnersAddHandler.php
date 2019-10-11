@@ -16,6 +16,7 @@ $last_name  = trim(strtoupper($_REQUEST['last_name']));
 $grade      = $_REQUEST['grade'];
 $sex        = trim(strtoupper($_REQUEST['sex']));
 $race_id    = $_REQUEST['race_id'];
+$qual_time  = $_REQUEST['qual_time'];
 
 // Make sure the school name only has the allowed characters:
 // A-Z, a-z, 0-9, ., -, space
@@ -37,7 +38,7 @@ if (!$result) {
 
 $runnersObj = new RunnersTable();
 $nextID = $runnersObj->MaxID() + 1;
-$num_rows_affected = $runnersObj->Insert($nextID, $school_id, $event_id, $race_id, $sex, $grade, $first_name, $last_name);
+$num_rows_affected = $runnersObj->Insert($nextID, $school_id, $event_id, $race_id, $sex, $grade, $first_name, $last_name, $qual_time);
 if ($num_rows_affected >= 0) {
    $sts = "Runner successfully added.";
    $alert_category = 'alert-success';
@@ -48,5 +49,3 @@ if ($num_rows_affected >= 0) {
 
 header("location: RunnersMain.php?status_msg=$sts&alert_category=$alert_category");
 exit;
-
-?>

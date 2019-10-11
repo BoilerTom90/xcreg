@@ -3,28 +3,32 @@
 $botURL = "https://www.google.com/recaptcha/api/siteverify";
 $secretKey = '6LfrwG0UAAAAAAUX_DUZXoSleeahPY3w342S6GOc';
 
-class UserRoles { 
-   CONST Admin = 'Admin'; 
-   CONST NonAdmin = 'NonAdmin'; 
-} 
-
-class UserStatus {
-   CONST Active = 'Active';
-   CONST InActive = 'InActive';
+class UserRoles
+{
+   const Admin = 'Admin';
+   const NonAdmin = 'NonAdmin';
 }
 
-class EventRegStatus {
-   CONST RegOpen = "Open";
-   CONST RegClosed = "Closed";
-   CONST RegUnknown = "Unknown";
+class UserStatus
+{
+   const Active = 'Active';
+   const InActive = 'InActive';
 }
 
-class RunnerSexValues {
-   CONST Boy = "B";
-   CONST Girl = "G";
+class EventRegStatus
+{
+   const RegOpen = "Open";
+   const RegClosed = "Closed";
+   const RegUnknown = "Unknown";
 }
 
-function OutputRoleChoices($selectedRole = UserRoles::NonAdmin) 
+class RunnerSexValues
+{
+   const Boy = "B";
+   const Girl = "G";
+}
+
+function OutputRoleChoices($selectedRole = UserRoles::NonAdmin)
 {
    $roles = array(UserRoles::Admin, UserRoles::NonAdmin);
    foreach ($roles as $r) {
@@ -51,8 +55,7 @@ function OutputUserStatusChoices($selectedStatus = UserStatus::Active)
 function OutputRegStatusChoices($activeOne = EventRegStatus::RegOpen)
 {
    $status = array(EventRegStatus::RegOpen, EventRegStatus::RegClosed);
-   foreach ($status as $as)
-   {
+   foreach ($status as $as) {
       $selected = "";
       if ($as == $activeOne) {
          $selected = "selected=\"selected\"";
@@ -61,7 +64,8 @@ function OutputRegStatusChoices($activeOne = EventRegStatus::RegOpen)
    }
 }
 
-function OutputEventOptions() {
+function OutputEventOptions()
+{
    $eventsObj = new EventsTable();
    $events = $eventsObj->ReadAll();
    foreach ($events as $event) {
@@ -71,7 +75,6 @@ function OutputEventOptions() {
       }
       echo "<option name=\"event_id\" value=\"" . $event['id'] . "\"" . $selected . ">" . $event['ev_name'] . "</option>";
    }
-
 }
 
 function OutputSchoolChoices($current_school_id = null, $addNoSchool = 0)
@@ -83,9 +86,8 @@ function OutputSchoolChoices($current_school_id = null, $addNoSchool = 0)
       echo "<option name=\"school_id\" value=\"0\" >No School</option>";
    }
 
-   if ($role == UserRoles::Admin) { 
-      foreach ($schools as $s)
-      {
+   if ($role == UserRoles::Admin) {
+      foreach ($schools as $s) {
          $school_id = $s['id'];
          $school_name = $s['name'];
          $selected = "";
@@ -95,34 +97,37 @@ function OutputSchoolChoices($current_school_id = null, $addNoSchool = 0)
          echo "<option name=\"school_id\" value=\"" . $school_id . "\"" . $selected . ">" . $school_name . "</option>";
       }
    } else {
-      foreach ($schools as $s)
-      {
+      foreach ($schools as $s) {
          $school_id = $s['id'];
          $school_name = $s['name'];
          $selected = "";
          if (($current_school_id != null) && ($current_school_id == $school_id)) {
             $selected = "selected=\"selected\"";
             echo "<option name=\"school_id\" value=\"" . $school_id . "\"" . $selected . ">" . $school_name . "</option>";
-         }  
+         }
       }
    }
 }
 
-function OutputRaceChoices($event_id)
+function OutputRaceChoices($event_id, $selected_race_id = null)
 {
-   $racesObj = new RacesTable(); 
+   $racesObj = new RacesTable();
    $races = $racesObj->ReadByEvent($event_id);
    asort($races);
    foreach ($races as $r) {
       $race_id = $r['id'];
       $race_name = $r['description'];
-      echo "<option name=\"race_id\" value=\"" . $race_id . "\">" . $race_name . "</option>";
+      if ($selected_race_id != null && $race_id == $selected_race_id)
+         $selected = "selected=\"selected\"";
+      else
+         $selected = "";
+      echo "<option name=\"race_id\" value=\"" . $race_id . "\"" . $selected . ">" . $race_name . "</option>";
    }
 }
 
 function OutputEventChoices()
 {
-   $eventsObj = new EventsTable(); 
+   $eventsObj = new EventsTable();
    $events = $eventsObj->ReadAll();
    foreach ($events as $e) {
       $ev_id = $e['id'];
@@ -132,5 +137,3 @@ function OutputEventChoices()
       echo "<option name=\"event_id\" value=\"" . $ev_id . "\">" . $ev_name . " on " . $ev_date . ", Registration is currently " . $ev_reg_status . "</option>";
    }
 }
-
-?>

@@ -20,10 +20,10 @@ function PrintRunnersCSV($runners)
 	}
 
 	fprintf($fp, "<pre>\n");
-	fprintf($fp, "Event, School, First, Last, Grade, Sex, Race\n");
+	fprintf($fp, "Event, School, First, Last, Grade, Sex, Race, Qualifying Time\n");
 	foreach ($runners as $r)
 	{
-		$line = array($r['event_name'], $r['school_name'], $r['first_name'], $r['last_name'], $r['grade'], $r['sex'], $r['race_description']);
+		$line = array($r['event_name'], $r['school_name'], $r['first_name'], $r['last_name'], $r['grade'], $r['sex'], $r['race_description'], $r['qual_time']);
 		fputcsv($fp, $line, ",");
 	}
 	fprintf($fp, "</pre>");
@@ -65,6 +65,7 @@ function PrintRunnersTable($runners)
 					<td>Grade</td>
                <td>Sex</td>
                <td>Race</td>
+               <td>Qualifying</br>Time</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -80,6 +81,7 @@ EOT;
 		$grade = $r['grade'];
       $sex = $r['sex'];
       $race = $r['race_description'];
+      $qual_time = $r['qual_time'];
 		print <<< EOT
 			<tr>
 				<td>$k</td>
@@ -89,6 +91,7 @@ EOT;
 				<td>$grade</td>
             <td>$sex</td>
             <td>$race</td>
+            <td>$qual_time</td>
 			</tr>
 EOT;
 	} 
@@ -126,4 +129,3 @@ if ($_REQUEST['button'] == "print")
 
 header("location: RunnersMain.php");
 exit;
-?>

@@ -11,11 +11,12 @@ require_once('includes/event_id.inc.php');
 $event_id = PHPSession::Instance()->GetSessionVariable('event_id');
 $distance = $_REQUEST['distance'];
 $sex = $_REQUEST['sex'];
+$qual_time = $_REQUEST['qual_time'];
 $description = strtoupper(trim($_REQUEST['description']));
 $raceObj = new RacesTable();
 $nextRaceID = $raceObj->MaxID() + 1;
 
-$result = $raceObj->Insert($nextRaceID, $event_id, $distance, $sex, $description);
+$result = $raceObj->Insert($nextRaceID, $event_id, $distance, $sex, $description, $qual_time);
 if ($result < 1) {
    $status_msg = "Error Adding Race to syste: " . $raceObj->LastError();
    header("location: RacesMainForm.php?status_msg=$status_msg" . "&alert_category=alert-danger");
@@ -25,6 +26,3 @@ if ($result < 1) {
 $status_msg = "Race Added!";
 header("location: RacesMainForm.php?status_msg=$status_msg");
 exit;
-
-
-?>

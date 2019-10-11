@@ -2,9 +2,9 @@
    <div class="panel-heading">
       <strong class="">Login to register your team</strong>
    </div>
-   <div class="alert alert-warning" role="alert">
+   <!-- <div class="alert alert-warning" role="alert">
       Registration is temporarily unavailable. It is scheduled to be back online no later than Oct 16, 2019
-   </div>
+   </div> -->
    <div class="panel-body">
       <form class="form-horizontal" role="form" action="LoginFormHandler.php">
          <?php DisplayStatusMessage($status_msg); ?>

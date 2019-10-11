@@ -18,9 +18,10 @@ $event_id = PHPSession::Instance()->GetSessionVariable('event_id');
 $race_id = $_REQUEST['race_id'];
 $distance = $_REQUEST['distance'];
 $sex = $_REQUEST['sex'];
+$qual_time = $_REQUEST['qual_time'];
 $description = strtoupper(trim($_REQUEST['description']));
 $raceObj = new RacesTable();
-$result = $raceObj->Modify($race_id, $event_id, $distance, $sex, $description);
+$result = $raceObj->Modify($race_id, $event_id, $distance, $sex, $description, $qual_time);
 if ($result < 1) {
    $status_msg = "Race Not Modified: " . $raceObj->LastError();
    header("location: RacesMainForm.php?status_msg=$status_msg" . "&alert_category=alert-danger");
@@ -30,5 +31,3 @@ if ($result < 1) {
 $status_msg = "Race Details Modified!";
 header("location: RacesMainForm.php?status_msg=$status_msg");
 exit;
-
-?>

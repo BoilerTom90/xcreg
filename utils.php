@@ -25,4 +25,13 @@ function CanEditRunners($eventRegStatus) {
    return false;
 }
 
-?>
+function hhmmssToSeconds($t) {
+   list($hh, $mm, $ss) = explode(":", $t);
+   return (($ss) + ($mm * 60) + ($hh * 3600));
+}
+
+function CompareHHMMSSTimes($t1, $t2) {
+   $t1Sec = hhmmssToSeconds($t1);
+   $t2Sec = hhmmssToSeconds($t2);
+   return $t2Sec - $t1Sec;
+}
