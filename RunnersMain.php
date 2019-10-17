@@ -116,7 +116,7 @@ $queryObj = new ComplexQueries();
                               <th>Grade</th>
                               <th>Sex</th>
                               <th>Race</th>
-                              <th>Qualifying Time (hh:mm:ss format)</th>
+                              <th>Qualifying Time<br>(hh:mm:ss format)</th>
                               <?php if ($canEditRunners) { ?>
                                  <th>Change</th>
                                  <th>Delete</th>
@@ -138,6 +138,7 @@ $queryObj = new ComplexQueries();
                               $runnerSex = $runner['sex'];
                               $qual_time = $runner['qual_time'];
                               $qual_time_or = $runner['qual_time_or'];
+                              $qual_time_or_indicator = $qual_time_or ? "*" : "";
 
                               $schoolRec = $schoolsObj->Read($school_id);
                               $schoolName = $schoolRec['name'];
@@ -173,7 +174,7 @@ $queryObj = new ComplexQueries();
                               echo "<td>" . $runner['grade'] . "</td>";
                               echo "<td class=\"$sexWarn\">" . $runner['sex'] . "</td>";
                               echo "<td class=\"$sexWarn\">" . $race_description . "</td>";
-                              echo "<td class=\"$timeWarn\">" . $runner['qual_time'] . "</td>";
+                              echo "<td class=\"$timeWarn\">" . $runner['qual_time'] . $qual_time_or_indicator . "</td>";
 
                               if ($canEditRunners) {
                                  echo "<td>" . "<a class=\"btn btn-primary btn-xs\" href=\"RunnersModifyForm.php?runner_id=$runner_id\"><span>Change</span></a>" . "</td>";

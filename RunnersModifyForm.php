@@ -127,7 +127,7 @@ $qt_or_no = ($qual_time_or) ? "" : "checked";
                      <div class="form-group">
                         <label for="qual_time" class="col-sm-3 control-label">Qualifying Time (hh:mm:ss)</label>
                         <div class="col-sm-9">
-                           <input type="text" class="form-control" pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}" id="qual_time" name="qual_time" placeholder="Qualifying Time (hh:mm:ss)" value=<?php echo "\"" . $qual_time . "\"" ?> title="Enter runners qualifying time for this race distance" data-toggle="popover" data-trigger="focus" data-content="Time must be in hh:mm:ss format" required>
+                           <input type="text" class="form-control" pattern="[0]{2}:[0-9]{2}:[0-9]{2}" id="qual_time" name="qual_time" placeholder="Qualifying Time (hh:mm:ss)" value=<?php echo "\"" . $qual_time . "\"" ?> title="Enter runners qualifying time for this race distance" data-toggle="popover" data-trigger="focus" data-content="Time must be in hh:mm:ss format" required>
                         </div>
                      </div>
 
