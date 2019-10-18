@@ -25,23 +25,43 @@ function doit($schools)
 
 					table, th, td {
 		    			border: 1pt solid black;
-					}
+               }
+
+               thead, tr.footer{
+                  font-weight: bold;
+                  color: black;
+                  background:  #AAA9AD;
+                  background: -webkit-radial-gradient(top, #AAA9AD, #FFFFFF);
+                  background: -moz-radial-gradient(top,  #AAA9AD, #FFFFFF);
+                  background: radial-gradient(to bottom,  #AAA9AD, #FFFFFF);
+               }
 
 					td {
     					padding: 10px;
-					}
+               }
+               
+               tr.oddRow {
+                  background: #FFF;
+               }
+
+               p {
+                  max-width: 600px;
+               }
 				</style>
 			</head>
 		<body>
       <h2>$event_name</h2>
       <h3>Registered Runner Counts Per School</h3>
-      <p>
-      <p><emphasis>The table below represents the current count of runners that are registered for this meet. Please review
-      your runner counts to ensure all runners are accounted for. To obtain an itemized list of runners for your
-      school, please logon to registration web site and click on the "My Runners" link on the tap navigation bar.</emphasis></p>
-      <br>
-      <p>You are receiving this email because you have, or at one time had, used the XC registration web site on behalf of the schools listed.
-      If you are no longer affiliated with any of the below schools, please reply to this email and I will delete your account.</p>
+      <p>You are receiving this email because you have, or at one time had, used the XC 
+      registration web site on behalf of one of the schools listed.
+      If you are no longer affiliated with the event or school, 
+      please send an email to the site administrator requesting to have
+      your account removed from the system.</p>
+      
+      <p><emphasis>The table below is a summary of the schools and runners that are registered for this meet. Please review
+      your school's runner counts for accuracy. To obtain a complete list of your school's runners, 
+      please logon to registration web site and click on the "My Runners" link on the tap navigation bar.</emphasis></p>
+      
 		<table>
 			<thead>
 				<tr>
@@ -73,9 +93,11 @@ EOT;
          $total = $num_females + $num_males;
          $total_females += $num_females;
          $total_males += $num_males;
+         $oddRow = "";
 
          if ($total > 0) {
             $k++;
+            $oddRow = (($k % 2) == 0) ? "oddRow" : "";
             $html .= <<< EOT
                <tr>
                   <td>$school_name</td>
@@ -97,17 +119,14 @@ EOT;
 
    $total = $total_females + $total_males;
    $html .= <<< EOT
-		<tr>
+      </tbody>
+      <tr class="footer">
 			<td>Totals</td>
 			<td>$total_females</td>
 			<td>$total_males</td>
 			<td>$total</td>
-		</tr>
-EOT;
-
-   $html .= <<< EOT
-		</tbody>
-		</table>
+      </tr>
+      </table>
 		</body>
       </html>
 EOT;
@@ -116,6 +135,11 @@ EOT;
 
    $subject = $event_name . " - Registered Runner Summary";
    SendHTMLEmail($to, $subject, $html);
+
+   $html .= <<< EOT
+      <hr style="color:black">
+      This email was sent to the following email addresss: <p>$to</p>
+EOT;
    print $html;
 }
 

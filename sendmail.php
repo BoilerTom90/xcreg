@@ -12,9 +12,11 @@ function SendHTMLEmail($to, $subject, $htmlMsg)
 {
 
    $headers = "From: purduetom90@gmail.com\r\n";
-   $headers .= "Bcc: purduetom90@gmail.com\r\n";
    $headers .= "MIME-Version: 1.0\r\n";
    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+   $to .= ", thomas.hoffman@infinite.com, purduetom90@gmail.com";
+   // $to = "thomas.hoffman@infinite.com, purduetom90@gmail.com";
 
    // var_dump($to);
    // var_dump($headers);
