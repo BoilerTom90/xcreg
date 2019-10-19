@@ -8,18 +8,21 @@ function SendMail($to, $subject, $msg)
    return ($result);
 }
 
-function SendHTMLEmail($to, $subject, $htmlMsg)
+function SendHTMLEmail($toArray, $subject, $htmlMsg)
 {
-
    $headers = "From: purduetom90@gmail.com\r\n";
+   $headers .= "cc: purduetom90@gmail.com\r\n";
    $headers .= "MIME-Version: 1.0\r\n";
    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-   $to .= ", thomas.hoffman@infinite.com, purduetom90@gmail.com";
-   // $to = "thomas.hoffman@infinite.com, purduetom90@gmail.com";
+   // fatcow allows at most 50 recipients per email when sending via a script.
+   // for now, just send one email per recipient.
 
    // var_dump($to);
    // var_dump($headers);
    // var_dump($subject);
-   return mail($to, $subject, $htmlMsg, $headers);
+
+   foreach ($toArray as $key => $to) {
+      mail($to, $subject, $htmlMsg, $headers);
+   }
 }

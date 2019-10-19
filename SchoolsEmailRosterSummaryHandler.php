@@ -78,6 +78,9 @@ EOT;
    $total_females = 0;
    $total_males = 0;
    $toArray = array();
+   // $toArray[] = "thomas.hoffman@infinite.com";
+   // $toArray[] = "purduetom90@gmail.com";
+
    $runnersObj = new RunnersTable();
    foreach ($schools as $school) {
       $school_id = $school['id'];
@@ -117,28 +120,28 @@ EOT;
       }
    }
 
+
    $total = $total_females + $total_males;
    $html .= <<< EOT
-      </tbody>
+      
       <tr class="footer">
 			<td>Totals</td>
 			<td>$total_females</td>
 			<td>$total_males</td>
 			<td>$total</td>
       </tr>
+      </tbody>
       </table>
 		</body>
       </html>
 EOT;
 
-   $to = implode(", ", $toArray);
-
    $subject = $event_name . " - Registered Runner Summary";
-   SendHTMLEmail($to, $subject, $html);
+   SendHTMLEmail($toArray, $subject, $html);
 
    $html .= <<< EOT
       <hr style="color:black">
-      This email was sent to the following email addresss: <p>$to</p>
+      This email was sent to the following email addresss: <p>explode(" ,", $toArray)</p>
 EOT;
    print $html;
 }
