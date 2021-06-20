@@ -92,7 +92,7 @@ $reset_code = '';
 
 <script type="text/javascript">
    
-   var siteKey = '6Lds-mcUAAAAAAoOoz1jA7XNm88G-dMs60Ub7OZe';
+   var siteKey = '6LdNTy8bAAAAAJIOonDxmvqqEN-8wDAHjE4Vb4tm';
 
    var verifyCallback = function(response) {
 
@@ -102,7 +102,7 @@ $reset_code = '';
 
    var onloadCallback = function() {
       grecaptcha.render('captcha_element', {
-         'sitekey' : '6Lds-mcUAAAAAAoOoz1jA7XNm88G-dMs60Ub7OZe',
+         'sitekey' : '6LdNTy8bAAAAAJIOonDxmvqqEN-8wDAHjE4Vb4tm',
          'callback': verifyCallback
       });
    };

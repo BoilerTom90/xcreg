@@ -1,7 +1,7 @@
 <?php 
-
+require_once('classes/DBAccess.php');
 require_once('includes/checkLogin.inc.php'); // session is started in here
-require_once('includes/head.inc.php');
+//require_once('includes/head.inc.php');
 require_once('includes/adminusercheck.inc.php');
 require_once('includes/status_msg.inc.php');
 require_once('sendmail.php');

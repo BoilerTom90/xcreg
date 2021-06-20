@@ -131,6 +131,7 @@ class PHPSession
       session_write_close();
    }
 }
+PHPSession::Instance()->StartSession ();
 
 
 ?>

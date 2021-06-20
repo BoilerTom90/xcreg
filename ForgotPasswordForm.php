@@ -79,7 +79,7 @@ OutputNavBar("Home");
 
 <script type="text/javascript">
    
-   var siteKey = '6LfrwG0UAAAAACPLFc4VO6t0DlElZhF6_8VK0mQg';
+   var siteKey = '6LdNTy8bAAAAAJIOonDxmvqqEN-8wDAHjE4Vb4tm';
 
    var verifyCallback = function(response) {
 
@@ -89,7 +89,7 @@ OutputNavBar("Home");
 
    var onloadCallback = function() {
       grecaptcha.render('captcha_element', {
-         'sitekey' : '6LfrwG0UAAAAACPLFc4VO6t0DlElZhF6_8VK0mQg',
+         'sitekey' : '6LdNTy8bAAAAAJIOonDxmvqqEN-8wDAHjE4Vb4tm',
          'callback': verifyCallback
       });
    };

@@ -60,7 +60,7 @@ if ($num_rows_affected < 0) {
 $num_rows_affected = $userObj->ModifyResetCode($user_id, 0);
 
 // Now, need to email the reset code to the user
-$msg  = "Your pasword to access http://stpeterxc.org/xcreg has been reset.\nIf this was not done by you, please contact the site's admininstrator.";
+$msg  = "Your pasword to access http://xcreg.boilertom.net has been reset.\nIf this was not done by you, please contact the site's admininstrator.";
 SendMail($email, "XCReg: Password reset notification", $msg);
 
 PHPSession::Instance()->EndSession();

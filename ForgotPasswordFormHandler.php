@@ -63,7 +63,7 @@ if ($num_rows_affected <= 0) {
 // Now, need to email the reset code to the user
 $msg  = "Your pasword reset code is $reset_code and will be valid for at most 30 minutes.\n";
 $msg .= "Please click on the following link, or copy and paste into your browser to proceed with reseting your pasword.\n\n";
-$msg .= "   http://stpeterxc.org/xcreg/ForgotPasswordResetCodeForm.php?reset_code=$reset_code&email=$email \n   ";
+$msg .= "   http://xcreg.boilertom.net/ForgotPasswordResetCodeForm.php?reset_code=$reset_code&email=$email \n   ";
 SendMail($email, "XCReg: Password Reset Code", $msg);
 
 

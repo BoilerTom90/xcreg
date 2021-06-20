@@ -93,7 +93,7 @@ if ($button == "setpassword") {
 			$encPwd = htmlentities($new_password, ENT_QUOTES);
 			$status_msg = "Password for $to has been updated to $encPwd";
 			if ($_REQUEST['emailpassword'] == 'emailpassword') {
-				$emailMsg = "Your password to access http://stpeterxc.org/xcreg has been set to $new_password";
+				$emailMsg = "Your password to access http://xcreg.boilertom.net has been set to $new_password";
             if (SendMail($to, "XCReg Password", $emailMsg))
 				{
 					$status_msg .= "</br>New Password ($encPwd) sent to users email address: $to";

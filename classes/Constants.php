@@ -1,7 +1,7 @@
 <?php
 
 $botURL = "https://www.google.com/recaptcha/api/siteverify";
-$secretKey = '6LfrwG0UAAAAAAUX_DUZXoSleeahPY3w342S6GOc';
+$secretKey = '6LdNTy8bAAAAAIqcLCfQtVCp7XHOmopWplId3Loq'; // '6LfrwG0UAAAAAAUX_DUZXoSleeahPY3w342S6GOc';
 
 class UserRoles
 {

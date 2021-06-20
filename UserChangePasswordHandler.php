@@ -68,7 +68,7 @@ if ($result >= 0) {
 	$encPwd = htmlentities($new_password, ENT_QUOTES);
 	$status_msg = "New password $encPwd has been saved!";
 	if ($email_password) {
-		$msg = "Your password for http://stpeterxc.org/xcreg has been reset to: $new_password";
+		$msg = "Your password for http://xcreg.boilertom.net has been reset to: $new_password";
 		if (SendMail($to, "XCReg Password", $msg)) {
 			$status_msg .= "</br>New Password emailed to $to";
 		}

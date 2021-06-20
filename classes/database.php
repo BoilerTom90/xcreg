@@ -8,18 +8,18 @@ class DB {
 
   // Localhost credentials
   public static $mysql_servername  = "localhost";
-  public static $mysql_username    = "root";
-  public static $mysql_password    = "";
-  public static $mysql_dbname      = "xcreg2";
+  public static $mysql_username    = "boilerto_xcreg";
+  public static $mysql_password    = "July16@1964";
+  public static $mysql_dbname      = "boilerto_xcreg";
 
   // Fat Cow Credentials
   // server: thoffmannet.fatcowmysql.com
   // username: xcreg_2015
   // pwd: xcreg_2015_123
 
-  public static $mysql_servername2 = "thoffmannet.fatcowmysql.com";
-  public static $mysql_username2   = "xcreg";
-  public static $mysql_password2   = "user@xcreg";
+  public static $mysql_servername2 = "boilertom.net"; // "xcreg.boilertom.net";
+  public static $mysql_username2   = "boilerto_xcreg";
+  public static $mysql_password2   = "July16@1964";
 }
 
 function ConnectToServer()

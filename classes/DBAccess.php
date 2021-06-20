@@ -12,12 +12,12 @@ class DBIntf
    const MYSQL_SERVERNAME_LOC  = "localhost";
    const MYSQL_USERNAME_LOC    = "root";
    const MYSQL_PASSWORD_LOC    = "";
-   const MYSQL_DBNAME_LOC      = "xcreg3";
+   const MYSQL_DBNAME_LOC      = "boilerto_xcreg";
 
-   const MYSQL_SERVERNAME_REM  = "thoffmannet.fatcowmysql.com";
-   const MYSQL_USERNAME_REM    = "xcreg";
-   const MYSQL_PASSWORD_REM    = "xcreg@xcreg";
-   const MYSQL_DBNAME_REM      = "xcreg3";
+   const MYSQL_SERVERNAME_REM  = "xcreg.boilertom.net";
+   const MYSQL_USERNAME_REM    = "boilerto_xcreg";
+   const MYSQL_PASSWORD_REM    = "July16@1964";
+   const MYSQL_DBNAME_REM      = "boilerto_xcreg";
 
    function __construct()
    {
