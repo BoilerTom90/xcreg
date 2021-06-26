@@ -16,6 +16,8 @@ if (empty($runner)) {
    exit;
 }
 
+
+
 $school_id   = $runner['school_id'];
 $school_name = $runner['school_name'];
 $first_name  = $runner['first_name'];

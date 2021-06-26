@@ -14,6 +14,8 @@ if (empty($user)) {
     header("location: UsersMain.php?status_msg=$status_msg&alert_category=\"alert-danger\"");
     exit;
 }
+
+
 $schoolObj = new SchoolsTable();
 
 $school_id = $user['school_id'];

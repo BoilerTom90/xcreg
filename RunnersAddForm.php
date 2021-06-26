@@ -1,7 +1,7 @@
 <?php
 
 require_once('includes/checkLogin.inc.php'); // session is started in here
-require_once('includes/head.inc.php');
+
 require_once('classes/DBAccess.php');
 require_once('classes/Constants.php');
 require_once('includes/event_id.inc.php');
@@ -23,6 +23,8 @@ if (!$canEditRunners) {
    header("location: index.php?status_msg=$sts");
    exit;
 }
+
+require_once('includes/head.inc.php');
 
 $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
 ?>

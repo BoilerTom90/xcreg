@@ -81,7 +81,7 @@ OutputNavBar("Home");
                                 <button type="submit" name="button" value="reset_password" 
                                         class="btn btn-primary btn-md">Reset Password</button>
                             </div>
-                        </div
+                        </div>
                     </form>
                 </div>
             </div>

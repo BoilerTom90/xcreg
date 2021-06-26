@@ -81,7 +81,7 @@ $user_id = $user[0]['id'];
                         <div class="col-sm-offset-3 col-sm-6">
                            <button type="submit" name="button" value="changepassword" class="btn btn-primary btn-md">Submit</button>
                         </div>
-                     </div </form> </div> </div> </div> <div class="col-xs-2">
+                     </div> </form> </div> </div> </div> <div class="col-xs-2">
                </div>
             </div>
          </div>
