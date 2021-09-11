@@ -40,8 +40,8 @@ $queryObj = new ComplexQueries();
                      <h3 class="panel-title">A Table cell with a RED background can mean the following:</h3>
                   </div>
                   <ul class="list-group">
-                     <li class="list-group-item"><b>Qualifying Time</b> - This field only applies to individual runners (i.e. not part of a full team). If a
-                        runner's <em>Qualifying Time</em> is hightlighted in red, this runner does NOT meet the minimal qualifying time for this race.
+                     <li class="list-group-item"><b>Qualifying Time</b> - The runner's qualifying time may be slower than the standard set forth by the race director. 
+                        This field only applies to runners competing as individuals, not part of a team. 
                         This runner will not be allowed to participate unless granted permission to over-ride the qualifying time restriction.
                         Contact the Race Administrator for permission to do this! <br><br>
                         Once approved, you <b>must</b> modify the runner and check the "Overide Qualifying Time" option. After modifying the runner to
