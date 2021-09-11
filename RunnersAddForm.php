@@ -73,7 +73,7 @@ $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
                      <div class="col-sm-9">
                         <input type="text" class="form-control" maxlength="25" id="last_name" name="last_name" placeholder="Last Name (25 chars max)" pattern="[A-Za-z0-9 -\.']{1,25}" title="Enter Last Name" data-toggle="popover" data-trigger="focus" data-content="Accepts up to 25 characters: alphanumeric, space, hyphen, apostrophe or period." required>
                      </div>
-                  </div>
+                  </div>  
 
                   <div class="form-group">
                      <label for="grade" class="col-sm-3 control-label">Grade</label>
@@ -104,7 +104,7 @@ $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
                      <div class="col-sm-9">
                         <input type="text" class="form-control" id="qual_time" 
                         name="qual_time" pattern="[0]{2}:[0-9]{2}:[0-9]{2}" value="00:00:00" placeholder="Qualifying Time (hh:mm:ss)" 
-                        title="Enter runners qualifying time for this race distance. Use 00:00:00 if time not required." data-toggle="popover" data-trigger="focus" data-content="Time must be in hh:mm:ss format" required>
+                        title="Enter runners qualifying time. Use 00:00:00 if time not required." data-toggle="popover" data-trigger="focus" data-content="Time must be in hh:mm:ss format" required>
                      </div>
                   </div>
 
