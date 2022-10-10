@@ -35,16 +35,27 @@ if (!$result) {
 	exit;
 }
 
-
 $runnersObj = new RunnersTable();
-$nextID = $runnersObj->MaxID() + 1;
-$num_rows_affected = $runnersObj->Insert($nextID, $school_id, $event_id, $race_id, $sex, $grade, $first_name, $last_name, $qual_time);
-if ($num_rows_affected >= 0) {
-   $sts = "Runner successfully added.";
-   $alert_category = 'alert-success';
-} else { 
-   $sts = "Runner NOT added: " . $runnersObj->LastError();
+
+// TEMP FIX:
+// We need to limit the number of runners per school per race to 8.
+// Ideally, this limit should be configurable per race per event, but that's a 
+// bigger impact which I don't have time for right now.
+$temp = $runnersObj->ReadByEventRaceAndSchool($event_id, $race_id, $school_id);
+$runnerCount = empty($temp) ? 0 : count($temp);
+if ($runnerCount >= 8) {
+   $sts = "You have met your limit of 8 runners for this race!";
    $alert_category = "alert-danger";
+} else {
+   $nextID = $runnersObj->MaxID() + 1;
+   $num_rows_affected = $runnersObj->Insert($nextID, $school_id, $event_id, $race_id, $sex, $grade, $first_name, $last_name, $qual_time);
+   if ($num_rows_affected >= 0) {
+      $sts = "Runner successfully added.";
+      $alert_category = 'alert-success';
+   } else { 
+      $sts = "Runner NOT added: " . $runnersObj->LastError();
+      $alert_category = "alert-danger";
+}
 }
 
 header("location: RunnersMain.php?status_msg=$sts&alert_category=$alert_category");

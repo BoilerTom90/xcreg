@@ -1045,6 +1045,26 @@ class RunnersTable extends TableBase
       return (parent::ReadNonID($attributes));
    }
 
+   function ReadByEventRaceAndSchool($event_id, $race_id, $school_id)
+   {
+      $attributes[] = array(
+         'colName' => 'event_id',
+         'colValue' => $event_id
+      );
+      $attributes[] = array(
+         'colName' => 'race_id',
+         'colValue' => $race_id
+      );
+      $attributes[] = array(
+         'colName' => 'school_id',
+         'colValue' => $school_id
+      );
+
+      return (parent::ReadNonID($attributes));
+   }
+
+
+
    function DeleteByEvent($id)
    {
       $attributes[] = array(

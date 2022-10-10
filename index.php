@@ -23,12 +23,16 @@ OutputNavBar("Home");
 
 <div class="container" style="padding-top:20px">
 	<div class="jumbotron" >
-		<h2>Cross Country Registration <?php /* echo $_SERVER['HTTP_HOST']; */ ?></h2>
-		This site is used by coaches and athletic directors to register their team's runners for MS Cross Country Meets. 
+		<h2>Cross Country Registration</h2>
+      <p>
+		This website is used to register runners for Cross Country races. Every event has a registration start and end
+      wdinow If the current date is outside this registration window, you will not be able to 
+      make registration changes. 
+      </p>
       
       
       <?php if (!PHPSession::Instance()->GetSessionVariable('role')) { ?>
-         You need an account to login and register your runners.
+         <p>Please note that you need an account to login and register your runners.</p>
          <ul>
             <li>Need an account? <a class="btn btn-info btn-xs" href="RequestAccount.php">click here.</a></li>
             <li>Forgot your password? <a class="btn btn-info btn-xs" href="ForgotPasswordForm.php">click here.</a></li>
@@ -37,7 +41,7 @@ OutputNavBar("Home");
        <ul>
          <li>Contact the administrator: <a class="btn btn-info btn-xs" href="ContactMain.php">click here.</a></li>
       </ul> 
-      <strong><span style="color:red">New this year!</span> When registering your runners, you must indicate which race the runner will compete in!</strong>
+      
 	</div>
 </div>
 
