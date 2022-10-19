@@ -1,17 +1,16 @@
 <?php
 
-require_once('includes/checkLogin.inc.php'); // session is started in here
+require_once 'includes/checkLogin.inc.php'; // session is started in here
 
-require_once('classes/DBAccess.php');
-require_once('classes/Constants.php');
-require_once('includes/event_id.inc.php');
-require_once('utils.php');
-
+require_once 'classes/DBAccess.php';
+require_once 'classes/Constants.php';
+require_once 'includes/event_id.inc.php';
+require_once 'utils.php';
 
 ?>
 
 <?php
-require_once('includes/navbar.inc.php');
+require_once 'includes/navbar.inc.php';
 OutputNavBar("Runners");
 
 $event_id = PHPSession::Instance()->GetSessionVariable('event_id');
@@ -19,12 +18,12 @@ $evObj = new EventsTable();
 $event = $evObj->Read($event_id);
 $canEditRunners = CanEditRunners($event['ev_reg_status']);
 if (!$canEditRunners) {
-   $sts = "Not authorized to add runners!";
-   header("location: index.php?status_msg=$sts");
-   exit;
+    $sts = "Not authorized to add runners!";
+    header("location: index.php?status_msg=$sts");
+    exit;
 }
 
-require_once('includes/head.inc.php');
+require_once 'includes/head.inc.php';
 
 $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
 ?>
@@ -56,7 +55,7 @@ $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
                      <label for="school_id" class="col-sm-3 control-label">School</label>
                      <div class="col-sm-9">
                         <select id="school_id" name="school_id" class="form-control" required>
-                           <?php OutputSchoolChoices($school_id); ?>
+                           <?php OutputSchoolChoices($school_id);?>
                         </select>
                      </div>
                   </div>
@@ -73,7 +72,7 @@ $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
                      <div class="col-sm-9">
                         <input type="text" class="form-control" maxlength="25" id="last_name" name="last_name" placeholder="Last Name (25 chars max)" pattern="[A-Za-z0-9 -\.']{1,25}" title="Enter Last Name" data-toggle="popover" data-trigger="focus" data-content="Accepts up to 25 characters: alphanumeric, space, hyphen, apostrophe or period." required>
                      </div>
-                  </div>  
+                  </div>
 
                   <div class="form-group">
                      <label for="grade" class="col-sm-3 control-label">Grade</label>
@@ -94,19 +93,19 @@ $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
                      <label for="race_id" class="col-sm-3 control-label">Race</label>
                      <div class="col-sm-9">
                         <select id="race_id" name="race_id" class="form-control" required>
-                           <?php OutputRaceChoices(PHPSession::Instance()->GetSessionVariable('event_id')); ?>
+                           <?php OutputRaceChoices(PHPSession::Instance()->GetSessionVariable('event_id'));?>
                         </select>
                      </div>
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                      <label for="qual_time" class="col-sm-3 control-label">Qualifying Time (hh:mm:ss)</label>
                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="qual_time" 
-                        name="qual_time" pattern="[0]{2}:[0-9]{2}:[0-9]{2}" value="00:00:00" placeholder="Qualifying Time (hh:mm:ss)" 
+                        <input type="text" class="form-control" id="qual_time"
+                        name="qual_time" pattern="[0]{2}:[0-9]{2}:[0-9]{2}" value="00:00:00" placeholder="Qualifying Time (hh:mm:ss)"
                         title="Enter runners qualifying time. Use 00:00:00 if time not required." data-toggle="popover" data-trigger="focus" data-content="Time must be in hh:mm:ss format" required>
                      </div>
-                  </div>
+                  </div> -->
 
 
                   <hr />
@@ -138,5 +137,5 @@ $school_id = PHPSession::Instance()->GetSessionVariable('school_id');
 
 
 <?php
-require_once('includes/footer.inc.php');
+require_once 'includes/footer.inc.php';
 ?>

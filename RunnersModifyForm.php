@@ -1,8 +1,8 @@
 <?php
 
-require_once('includes/checkLogin.inc.php'); // session is started in here
-require_once('includes/head.inc.php');
-require_once('classes/Constants.php');
+require_once 'includes/checkLogin.inc.php'; // session is started in here
+require_once 'includes/head.inc.php';
+require_once 'classes/Constants.php';
 
 // given the runner ID, retrieve the most recent information
 $runner_id = $_REQUEST['runner_id'];
@@ -11,26 +11,26 @@ $runner = $runnersObj->ReadRunnerByRunnerID($runner_id);
 //var_dump($runner); exit;
 
 if (empty($runner)) {
-   $sts = "Runner no longer exists in system <br>" . $runnersObj->LastError();
-   header("location: RunnersMain.php?status_msg=$sts&alert_category=alert-danger");
-   exit;
+    $sts = "Runner no longer exists in system <br>" . $runnersObj->LastError();
+    header("location: RunnersMain.php?status_msg=$sts&alert_category=alert-danger");
+    exit;
 }
 
-$school_id   = $runner['school_id'];
+$school_id = $runner['school_id'];
 $school_name = $runner['school_name'];
-$first_name  = $runner['first_name'];
-$last_name   = $runner['last_name'];
-$grade       = $runner['grade'];
-$sex         = $runner['sex'];
-$race_id     = $runner['race_id'];
-$qual_time   = $runner['qual_time'];
-$qual_time_or = $runner['qual_time_or'];
+$first_name = $runner['first_name'];
+$last_name = $runner['last_name'];
+$grade = $runner['grade'];
+$sex = $runner['sex'];
+$race_id = $runner['race_id'];
+// $qual_time   = $runner['qual_time'];
+// $qual_time_or = $runner['qual_time_or'];
 $race_description = $runner['race_description'];
 
-$maleSelected   = ($sex == RunnerSexValues::Boy) ? "checked" : "";
+$maleSelected = ($sex == RunnerSexValues::Boy) ? "checked" : "";
 $femaleSelected = ($sex == RunnerSexValues::Girl) ? "checked" : "";
-$qt_or_yes = ($qual_time_or) ? "checked" : "";
-$qt_or_no = ($qual_time_or) ? "" : "checked";
+// $qt_or_yes = ($qual_time_or) ? "checked" : "";
+// $qt_or_no = ($qual_time_or) ? "" : "checked";
 
 // var_dump($sex);
 // var_dump($maleSelected);
@@ -43,9 +43,9 @@ $qt_or_no = ($qual_time_or) ? "" : "checked";
 <body>
 
    <?php
-   require_once('includes/navbar.inc.php');
-   OutputNavBar("Runners");
-   ?>
+require_once 'includes/navbar.inc.php';
+OutputNavBar("Runners");
+?>
 
    <br>
    <div class="container">
@@ -77,7 +77,7 @@ $qt_or_no = ($qual_time_or) ? "" : "checked";
                         <label for="school" class="col-sm-3 control-label">School</label>
                         <div class="col-sm-9">
                            <select id="school" name="school_id" class="form-control" required autofocus>
-                              <?php OutputSchoolChoices($school_id); ?>
+                              <?php OutputSchoolChoices($school_id);?>
                            </select>
                         </div>
                      </div>
@@ -124,14 +124,14 @@ $qt_or_no = ($qual_time_or) ? "" : "checked";
                         </div>
                      </div>
 
-                     <div class="form-group">
+                     <!-- <div class="form-group">
                         <label for="qual_time" class="col-sm-3 control-label">Qualifying Time (hh:mm:ss)</label>
                         <div class="col-sm-9">
                            <input type="text" class="form-control" pattern="[0]{2}:[0-9]{2}:[0-9]{2}" id="qual_time" name="qual_time" placeholder="Qualifying Time (hh:mm:ss)" value=<?php echo "\"" . $qual_time . "\"" ?> title="Enter runners qualifying time for this race distance" data-toggle="popover" data-trigger="focus" data-content="Time must be in hh:mm:ss format" required>
                         </div>
-                     </div>
+                     </div> -->
 
-                     <div class="form-group">
+                     <!-- <div class="form-group">
                         <label for="qual_time_or" class="col-sm-3 control-label">Over-ride Qualifying Time</label>
                         <div class="col-sm-9">
                            <label class="radio-inline">
@@ -141,7 +141,7 @@ $qt_or_no = ($qual_time_or) ? "" : "checked";
                               <input type="radio" name="qual_time_or" value="<?php echo "0" ?>" required <?php echo $qt_or_no ?>>No
                            </label>
                         </div>
-                     </div>
+                     </div> -->
 
                      <hr />
                      <div class="form-group last">
@@ -162,5 +162,5 @@ $qt_or_no = ($qual_time_or) ? "" : "checked";
 
 
    <?php
-   require_once('includes/footer.inc.php');
-   ?>
+require_once 'includes/footer.inc.php';
+?>
