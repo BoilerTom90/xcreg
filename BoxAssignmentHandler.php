@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once('includes/checkLogin.inc.php'); // session is started in here
 require_once('includes/adminusercheck.inc.php');
@@ -41,13 +41,13 @@ if ($race['sex'] == RunnerSexValues::Boy) {
 }
 
 $dataObj = new ComplexQueries();
-$data = $dataObj->ReadRunnerCountsGroupedByEventSchoolRace($event_id, $race_id);
+$runnerCountDataPerSchool = $dataObj->ReadRunnerCountsGroupedByEventSchoolRace($event_id, $race_id);
 
-$startingBoxObj = new StartingBoxes(30);
-foreach ($data as $idx => $schoolRec) {
-//   echo $idx . " -> " . $schoolRec['school_id'] . ":" . $schoolRec['count']  . "</br>";
-   $startingBoxObj->addEntry($schoolRec['school_id'], $schoolRec['count']);
-}
+$startingBoxObj = new StartingBoxes(30, $runnerCountDataPerSchool);
+// foreach ($runnerCountDataPerSchool as $idx => $schoolRec) {
+// //   echo $idx . " -> " . $schoolRec['school_id'] . ":" . $schoolRec['count']  . "</br>";
+//    $startingBoxObj->addEntry($schoolRec['school_id'], $schoolRec['count']);
+// }
 $startingBoxObj->prettyPrint($title);
 // echo "hello";
 ?>
